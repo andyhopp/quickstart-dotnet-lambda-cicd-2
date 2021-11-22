@@ -846,7 +846,6 @@ p.footer-text a{color:#d7d8d8}
 <li><a href="#_post_deployment_steps">Post-deployment steps</a></li>
 <li><a href="#_best_practices_for_using_net_cicd_pipeline_for_serverless_applications_on_aws">Best practices for using .NET CI/CD pipeline for Serverless Applications on AWS</a></li>
 <li><a href="#_faq">FAQ</a></li>
-<li><a href="#_troubleshooting">Troubleshooting</a></li>
 <li><a href="#_customer_responsibility">Customer responsibility</a></li>
 <li><a href="#_parameter_reference">Parameter reference</a></li>
 <li><a href="#_send_us_feedback">Send us feedback</a></li>
@@ -868,8 +867,7 @@ p.footer-text a{color:#d7d8d8}
 </div>
 <div class="paragraph text-center">
 <p><strong>11 2021</strong><br>
-<em>Andy Hopper, AWS Microsoft Specialist SA Team</em><br>
-<em>{quickstart-contributors}</em></p>
+<em>Andy Hopper, AWS Microsoft Specialist SA Team</em></p>
 </div>
 <div class="admonitionblock tip text-left">
 <table>
@@ -896,7 +894,7 @@ report bugs, or submit feature ideas for this Quick Start.
 <p>This guide provides instructions for deploying the .NET CI/CD pipeline for Serverless Applications Quick Start reference architecture on the AWS Cloud.</p>
 </div>
 <div class="paragraph">
-<p>This Quick Start is for users who are interested in creating a Continuous Integration/Continuous Deployment pipeline for a .NET application in their AWS environment using AWS' portfolio of DevOps services. This Quick Start follows best practices to create a CI/CD pipeline that automatically builds and deploys a Serverless .NET application to AWS Lambda. This Quick Start can be used as both a reference architecture as well as a template for creating a fully-implemented CI/CD pipeline for deployment of a Serverless .NET application to Lambda by uploading the application&#8217;s source code to the code repository created by the Quick Start.</p>
+<p>This Quick Start is for users who are interested in creating a Continuous Integration/Continuous Deployment (CI/CD) pipeline for a .NET application in their AWS environment using AWS' portfolio of DevOps services. This Quick Start follows best practices to create a CI/CD pipeline that automatically builds and deploys a Serverless .NET application to AWS Lambda. This Quick Start can be used as both a reference architecture as well as a template for creating a fully-implemented CI/CD pipeline for deployment of a Serverless .NET application to Lambda by uploading the application&#8217;s source code to the code repository created by the Quick Start.</p>
 </div>
 </div>
 </div>
@@ -1115,14 +1113,6 @@ Certain Regions are available on an opt-in basis. For more information, see <a h
 <p>Verify that your AWS account has the permissions required to create the resources listed in the <a href="#_resource_quotas">Resource quotas</a> section of this guide.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_prepare_your_partner_company_name_account">Prepare your {partner-company-name} account</h4>
-
-</div>
-<div class="sect3">
-<h4 id="_prepare_for_the_deployment">Prepare for the deployment</h4>
-
-</div>
 </div>
 </div>
 </div>
@@ -1211,16 +1201,49 @@ If you deploy .NET CI/CD pipeline for Serverless Applications into an existing V
 <div class="paragraph">
 <p>This Quick Start includes CloudFormation output parameters that provide links to the infrastructure deployed by the Quick Start:</p>
 </div>
-<div class="paragraph">
-<p>|RepoUrl |The URL to use Git when creating a clone of the CodeCommit repository.
-|CodePipelineUrl |The URL to navigate directly to the CodePipeline pipeline for the application.</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ouput</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RepoUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL to use Git when creating a clone of the CodeCommit repository.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CodePipelineUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The URL to navigate directly to the CodePipeline pipeline for the application.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>After deploying this Quick Start, a build of the application will be started. You may use your browser to navigate to the CodePipeline URL to observe the build process. After the build completes, the deployment process for the application creates a CloudFormation that will be named "&lt;Quick Start Stack Name&gt;-Deploy" using the name you entered when launching this Quick Start. This stack will also include an output parameter that can be used to view your deployed application:</p>
 </div>
-<div class="paragraph">
-<p>|ServerlessExampleApi |A URL for the API Gateway stage that exposes the application.</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ouput</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ServerlessExampleApi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A URL for the API Gateway stage that exposes the application.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -1272,14 +1295,6 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 </div>
 <div class="paragraph">
 <p><strong>A.</strong> Launch the Quick Start templates from the links in this guide or from another S3 bucket. If you deploy the templates from a local copy on your computer or from a location other than an S3 bucket, you might encounter template-size limitations. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html" target="_blank" rel="noopener">AWS CloudFormation quotas</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_troubleshooting">Troubleshooting</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>&lt;Steps for troubleshooting the deployment.&gt;</p>
 </div>
 </div>
 </div>
@@ -1356,7 +1371,7 @@ and to share your customizations with others.</p>
 </html>
 <!--
 repo commit:
-5008107a8b09f4684970c1fc7958ea1d1210ae04
+bcd3c80c07493ee33fe70ba74d53fd9f7885e2c2
 
 submodule config:
  eea042d0b9c005d2549a71349e5f28b02c81af75 docs/boilerplate (remotes/origin/cdk-13-geea042d)

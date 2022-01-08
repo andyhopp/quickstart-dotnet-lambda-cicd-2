@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.15">
-<title>.NET CI/CD pipeline for Serverless Applications on the AWS Cloud</title>
+<meta name="generator" content="Asciidoctor 2.0.16">
+<title>CI/CD pipeline for .NET Serverless Applications on the AWS Cloud</title>
 <style>
 
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -825,7 +825,7 @@ p.footer-text a{color:#d7d8d8}
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#_overview">Overview</a></li>
-<li><a href="#_net_cicd_pipeline_for_serverless_applications_on_aws">.NET CI/CD pipeline for Serverless Applications on AWS</a></li>
+<li><a href="#_cicd_pipeline_for_net_serverless_applications_on_aws">CI/CD pipeline for .NET Serverless Applications on AWS</a></li>
 <li><a href="#_aws_costs">AWS costs</a></li>
 <li><a href="#_software_licenses">Software licenses</a></li>
 <li><a href="#_architecture">Architecture</a></li>
@@ -844,10 +844,14 @@ p.footer-text a{color:#d7d8d8}
 </li>
 <li><a href="#_test_the_deployment">Test the deployment</a></li>
 <li><a href="#_postdeployment_steps">Postdeployment steps</a></li>
-<li><a href="#_best_practices_for_using_net_cicd_pipeline_for_serverless_applications_on_aws">Best practices for using .NET CI/CD pipeline for Serverless Applications on AWS</a></li>
+<li><a href="#_best_practices_for_using_cicd_pipeline_for_net_serverless_applications_on_aws">Best practices for using CI/CD pipeline for .NET Serverless Applications on AWS</a></li>
 <li><a href="#_faq">FAQ</a></li>
 <li><a href="#_customer_responsibility">Customer responsibility</a></li>
-<li><a href="#_parameter_reference">Parameter reference</a></li>
+<li><a href="#_parameter_reference">Parameter reference</a>
+<ul class="sectlevel2">
+<li><a href="#_deployment_parameters">Deployment parameters</a></li>
+</ul>
+</li>
 <li><a href="#_send_us_feedback">Send us feedback</a></li>
 <li><a href="#_quick_start_reference_deployments">Quick Start reference deployments</a></li>
 <li><a href="#_github_repository">GitHub repository</a></li>
@@ -858,7 +862,7 @@ p.footer-text a{color:#d7d8d8}
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<h2 id="_net_cicd_pipeline_for_serverless_applications_on_the_aws_cloud" class="discrete text-center">.NET CI/CD pipeline for Serverless Applications on the AWS Cloud</h2>
+<h2 id="_cicd_pipeline_for_net_serverless_applications_on_the_aws_cloud" class="discrete text-center">CI/CD pipeline for .NET Serverless Applications on the AWS Cloud</h2>
 <h2 id="_quick_start_reference_deployment" class="discrete text-left text-center">Quick Start Reference Deployment</h2>
 <div class="imageblock text-center">
 <div class="content">
@@ -891,12 +895,12 @@ report bugs, or submit feature ideas for this Quick Start.
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This guide provides instructions for deploying the .NET CI/CD pipeline for Serverless Applications Quick Start reference architecture on the AWS Cloud.</p>
+<p>This guide provides instructions for deploying the CI/CD pipeline for .NET Serverless Applications Quick Start reference architecture on the AWS Cloud.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_net_cicd_pipeline_for_serverless_applications_on_aws">.NET CI/CD pipeline for Serverless Applications on AWS</h2>
+<h2 id="_cicd_pipeline_for_net_serverless_applications_on_aws">CI/CD pipeline for .NET Serverless Applications on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Quick Start builds a continuous integration and delivery (CI/CD) pipeline for serverless .NET applications on the Amazon Web Services (AWS) Cloud. It deploys an AWS CodeCommit repository with a sample AWS Lambda application defined in an <a href="https://aws.amazon.com/serverless/sam/">AWS Serverless Application Model (AWS SAM)</a> template. Pushing changes to modify the application invokes AWS CodePipeline. The pipeline builds and deploys the application using AWS CloudFormation and exposes it to the internet with Amazon API Gateway.</p>
@@ -942,13 +946,13 @@ After you deploy the Quick Start, create <a href="https://docs.aws.amazon.com/aw
 <h2 id="_architecture">Architecture</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Deploying this Quick Start with default parameters builds the following .NET CI/CD pipeline for Serverless Applications environment in the AWS Cloud.</p>
+<p>Deploying this Quick Start with default parameters builds the following CI/CD pipeline for .NET Serverless Applications environment in the AWS Cloud.</p>
 </div>
 <div id="architecture1" class="imageblock">
 <div class="content">
 <img src="images/dotnet-lambda-cicd-architecture-diagram.png" alt="Architecture">
 </div>
-<div class="title">Figure 1. Quick Start architecture for .NET CI/CD pipeline for Serverless Applications on AWS</div>
+<div class="title">Figure 1. Quick Start architecture for CI/CD pipeline for .NET Serverless Applications on AWS</div>
 </div>
 <div class="paragraph">
 <p>As shown in <a href="#architecture1">Figure 1</a>, the Quick Start sets up the following:</p>
@@ -1142,7 +1146,7 @@ Certain Regions are available on an opt-in basis. For more information, see <a h
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you deploy .NET CI/CD pipeline for Serverless Applications into an existing VPC, ensure that your VPC has two private subnets in different Availability Zones for the workload instances and that the subnets are not shared. This Quick Start does not support <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html" target="_blank" rel="noopener">shared subnets</a>. The subnets require <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html" target="_blank" rel="noopener">NAT gateways</a> in their route tables to allow the instances to download packages and software without exposing the instances to the internet. Also ensure that the domain name in the DHCP options is configured, as explained in <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html" target="_blank" rel="noopener">DHCP options sets</a>. Provide your VPC settings when you launch the Quick Start.
+If you deploy CI/CD pipeline for .NET Serverless Applications into an existing VPC, ensure that your VPC has two private subnets in different Availability Zones for the workload instances and that the subnets are not shared. This Quick Start does not support <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html" target="_blank" rel="noopener">shared subnets</a>. The subnets require <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html" target="_blank" rel="noopener">NAT gateways</a> in their route tables to allow the instances to download packages and software without exposing the instances to the internet. Also ensure that the domain name in the DHCP options is configured, as explained in <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html" target="_blank" rel="noopener">DHCP options sets</a>. Provide your VPC settings when you launch the Quick Start.
 </td>
 </tr>
 </table>
@@ -1161,7 +1165,7 @@ If you deploy .NET CI/CD pipeline for Serverless Applications into an existing V
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://fwd.aws/reqzg?" target="_blank" rel="noopener">Deploy .NET CI/CD pipeline for Serverless Applications into your AWS account</a></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://fwd.aws/reqzg?" target="_blank" rel="noopener">Deploy CI/CD pipeline for .NET Serverless Applications into your AWS account</a></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://fwd.aws/ePKEm?" target="_blank" rel="noopener">View template</a></p></td>
 </tr>
 </tbody>
@@ -1186,7 +1190,7 @@ If you deploy .NET CI/CD pipeline for Serverless Applications into an existing V
 <p>Choose <strong>Create stack</strong> to deploy the stack.</p>
 </li>
 <li>
-<p>Monitor the status of the stack. When the status is <strong>CREATE_COMPLETE</strong>, the .NET CI/CD pipeline for Serverless Applications deployment is ready.</p>
+<p>Monitor the status of the stack. When the status is <strong>CREATE_COMPLETE</strong>, the CI/CD pipeline for .NET Serverless Applications deployment is ready.</p>
 </li>
 <li>
 <p>To view the created resources, see the values displayed in the <strong>Outputs</strong> tab for the stack.</p>
@@ -1262,7 +1266,7 @@ If you deploy .NET CI/CD pipeline for Serverless Applications into an existing V
 </div>
 </div>
 <div class="sect1">
-<h2 id="_best_practices_for_using_net_cicd_pipeline_for_serverless_applications_on_aws">Best practices for using .NET CI/CD pipeline for Serverless Applications on AWS</h2>
+<h2 id="_best_practices_for_using_cicd_pipeline_for_net_serverless_applications_on_aws">Best practices for using CI/CD pipeline for .NET Serverless Applications on AWS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Quick Start uses <a href="https://aws.amazon.com/serverless/sam/">AWS Serverless Application Model</a> to define and deploy an application. While you are able and encouraged to modify the application code, it is recommended that you maintain the definition of the application in the AWS SAM template.</p>
@@ -1325,6 +1329,38 @@ Unless you are customizing the Quick Start templates for your own deployment pro
 </tr>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_deployment_parameters">Deployment parameters</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Quick Start parameters</caption>
+<colgroup>
+<col style="width: 16%;">
+<col style="width: 11%;">
+<col style="width: 73%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter label (name)</th>
+<th class="tableblock halign-left valign-top">Default value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 bucket name
+(<code>QSS3BucketName</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aws-quickstart</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name of the S3 bucket for your copy of the Quick Start assets. Keep the default name unless you are customizing the template. Changing the name updates code references to point to a new Quick Start location. This name can include numbers, lowercase letters, uppercase letters, and hyphens, but do not start or end with a hyphen (-). See <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quick Start S3 key prefix (path in the bucket inclusive of <code>quickstart-qumulo-cloud-q</code> folder)
+(<code>QSS3KeyPrefix</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quickstart-dotnet-lambda-cicd/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3 key prefix that is used to simulate a directory for your copy of the Quick Start assets. Keep the default prefix unless you are customizing the template. Changing this prefix updates code references to point to a new Quick Start location. This prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slashes (/). See <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html" class="bare">https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html</a> and <a href="https://aws-quickstart.github.io/option1.html" class="bare">https://aws-quickstart.github.io/option1.html</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1368,8 +1404,15 @@ and to share your customizations with others.</p>
 </div>
 <p class="footer-text">
 <!-- We can use document attributes: -->
-<!-- Generated with Asciidoctor v2.0.15. -->
+<!-- Generated with Asciidoctor v2.0.16. -->
 <a href="https://aws.amazon.com/privacy/">Privacy</a> | <a href="https://aws.amazon.com/terms/">Site terms</a> | &copy; 2021, Amazon Web Services, Inc. or its affiliates. All rights reserved.
 </p>
 </body>
 </html>
+<!--
+repo commit:
+5bebe34064ad669bbd6b5ca1c6284bafcb06c46d
+
+submodule config:
+ eea042d0b9c005d2549a71349e5f28b02c81af75 docs/boilerplate (remotes/origin/cdk-13-geea042d)
+-->

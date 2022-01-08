@@ -1,1 +1,3 @@
-// placeholder
+
+=== Deployment parameters
+include::serverless-cicd.template.adoc[]
